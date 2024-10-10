@@ -11,6 +11,7 @@ func main() {
 	if err != nil {
 		panic(err)
 	}
+	defer f.Close()
 	img, err := jpeg.Decode(f)
 	if err != nil {
 		panic(err)
