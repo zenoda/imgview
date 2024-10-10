@@ -10,7 +10,7 @@ import (
 	"os"
 )
 
-func Show(img *image.Image) {
+func Show(img image.Image) {
 	gtk.Init(&os.Args)
 
 	window, err := gtk.WindowNew(gtk.WINDOW_TOPLEVEL)
@@ -27,7 +27,7 @@ func Show(img *image.Image) {
 		panic(err)
 	}
 	var buff bytes.Buffer
-	err = png.Encode(&buff, *img)
+	err = png.Encode(&buff, img)
 	if err != nil {
 		panic(err)
 	}
@@ -35,12 +35,12 @@ func Show(img *image.Image) {
 	if err != nil {
 		panic(err)
 	}
-	image, err := gtk.ImageNewFromPixbuf(pixBuff)
+	dstImg, err := gtk.ImageNewFromPixbuf(pixBuff)
 	if err != nil {
 		panic(err)
 	}
 
-	window.Add(image)
+	window.Add(dstImg)
 
 	window.ShowAll()
 

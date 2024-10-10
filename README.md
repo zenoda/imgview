@@ -36,7 +36,7 @@ func main() {
     if err != nil {
     panic(err)
     }
-    imgview.Show(&img)
+    imgview.Show(img)
 }
 ```
 ![imgview.png](documents/images/imgview.png)
